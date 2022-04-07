@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container" style="display: flex">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapced"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-conttrols="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">
+                Admin Page
+            </a>
+            <a class="navbar-brand" href="#" th:href="@{/users}">
+                Users Page
+            </a>
+            <a class="navbar-brand" href="#" th:href="@{/students}">
+                Students Page
+            </a>
+            <a id="adminPage" style="display:none" class="navbar-brand" href="#" th:href="@{/}">
+                Admin Page
+            </a>
+            <a id="studentPage" style="display:none" class="navbar-brand" href="#" th:href="@{/}">
+                Student Page
+            </a>
+            <a id="students" style="display:none" class="navbar-brand" href="#" th:href="@{/marks}">
+                Students Marks
+            </a>
+        </div>
+
+        <style>
+            #navbar:last-of-type{
+                margin-left: auto;
+            }
+        </style>
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="navbar-form navbar-right">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="btn btn-danger">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<br />
+<br />
+
+<div class="container">
+    <br>
+    <h2 style="text-align:center; font-weight: bold; font-size: 40px">Welcome, <span id="auth" sec:authentication="principal.username">User</span></h2>
+</div>
+
+<script>
+    const user = document.getElementById('auth');
+    const pages = document.getElementsByClassName('navbar-brand');
+    const students = document.getElementById('students');
+    const studentPage = document.getElementById('studentPage');
+    if(user.textContent !== "admin@gmail.com")
+    {
+        for(let page of pages)
+        {
+            page.style.display="none";
+        }
+        students.style.display="flex";
+        studentPage.style.display="flex";
+    }
+</script>
+</body>
+
+</html>
