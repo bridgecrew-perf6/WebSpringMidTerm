@@ -1,0 +1,9 @@
+.navbar {
+    background: dodgerblue;
+}
+a {
+    color: white;
+}
+a:hover{
+    color: lightgrey;
+}
