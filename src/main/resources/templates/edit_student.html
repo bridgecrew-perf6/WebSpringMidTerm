@@ -4,54 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Update Student</title>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
-<nav class="navbar navbar-fixed-top">
-    <div class="container" style="display: flex">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapced"
-                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-conttrols="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" th:href="@{/students/new}">
-                Add Student Page
-            </a>
-            <a class="navbar-brand" href="#" th:href="@{/students}">
-                Students Page
-            </a>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap"></i>
+        <strong>AIU</strong> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-lg-between" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{/students/new}">
+                    Add Student Page
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{/students}">
+                    Students Page
+                </a>
+            </li>
+        </ul>
+        <div class="text-white">
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="btn btn-danger">Logut</a>
+            </li>
         </div>
 
-        <style>
-            #navbar:last-of-type{
-                margin-left: auto;
-            }
-        </style>
-
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="navbar-form navbar-right">
-                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="btn btn-danger">Logut</a></li>
-            </ul>
-        </div>
 
     </div>
 </nav>
 
-<br />
-<br />
+<br/>
+<br/>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 ">
+        <div class="col-md-8 mx-auto col col-lg-6">
             <h1 class="text-center" style=" font-family: Impact">Update Student</h1>
             <div class="card-body">
                 <form th:action="@{/students/{id}(id=${student.id})}" th:object="${student}" method="post">
@@ -131,13 +131,13 @@
                     </div>
 
                     <style>
-                        #firstName:invalid, #lastName:invalid, #email:invalid, #OOP:invalid, #CPA:invalid, #OS:invalid  {
+                        #firstName:invalid, #lastName:invalid, #email:invalid, #OOP:invalid, #CPA:invalid, #OS:invalid {
                             border: 1px solid red;
                         }
                     </style>
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-success" >Update</button>
+                        <button type="submit" class="btn btn-success">Update</button>
                     </div>
 
                 </form>

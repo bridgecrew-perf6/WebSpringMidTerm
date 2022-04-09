@@ -2,8 +2,12 @@
     background: dodgerblue;
 }
 a {
-    color: white;
+    color: white !important;
 }
 a:hover{
-    color: lightgrey;
+    color: lightgrey !important;
 }
+a {
+    font-size: 20px;
+}
+
