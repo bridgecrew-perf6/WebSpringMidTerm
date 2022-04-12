@@ -5,8 +5,9 @@ Simple and fully responsive Student Management System using Spring Boot, Thymele
 
 It works with 4 tables: *students, role, users-roles, user-table*.
 Only admin can add or delete students;
-- login: *admin*
-- password: *Admin2022*
+## - login: **admin**
+## - password: **Admin2022**
+
 Students can register and see their marks, if they exist in table.
 
 # Tools and technologies used:
